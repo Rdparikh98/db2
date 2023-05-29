@@ -100,7 +100,7 @@ public class User implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==registerButton) {
 				try {
-					Connection con = dbconnect.getConneection();
+					Connection con = dbconnect.getConnection();
 					PreparedStatement Pstatement = con.prepareStatement("insert into user values(?,?,?,?,?,?,?)");
 					Pstatement.setString(1, user_idField.getText());
 					Pstatement.setString(2, usernameField.getText());
@@ -108,7 +108,7 @@ public class User implements ActionListener{
 					Pstatement.setString(4, confirmPasswordField.getText());
 					Pstatement.setString(5, fullnameField.getText());
 					Pstatement.setString(6, emailTextField.getText());
-					Pstatement.setString(8, phonenumbertField.getText());
+					Pstatement.setString(7, phonenumbertField.getText());
 					
 					 if(passwordField.getText().equalsIgnoreCase(confirmPasswordField.getText()))
 		                {
@@ -121,6 +121,9 @@ public class User implements ActionListener{
 		                    JOptionPane.showMessageDialog(null,"password did not match");
 		                }
 				
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 			

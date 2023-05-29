@@ -35,7 +35,7 @@ public class SoftwareComponent implements ActionListener {
     
     SoftwareComponent()
     {
-    	
+    createWindow();	
     	setLocationandSize();
     }
     
@@ -97,9 +97,9 @@ public class SoftwareComponent implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource==)
+			if(e.getSource()==)
 			
-			if(e.getSource==submitButton) {
+			if(e.getSource()==submitButton) {
 				try {
 					Connection con = dbconnect.getConnection();
 					PreparedStatement Pstatement = con.prepareStatement("insert into softwareComponents values(?,?,?,?,?,?)");

@@ -20,7 +20,7 @@ public class admindashboard extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -33,7 +33,7 @@ public class admindashboard extends JFrame {
 		JButton btnNewButton = new JButton("Users");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
-				Users frame = new Users();
+				Users frame = new Users(); {
         		frame.setVisible(true);
 			}
 		});
@@ -47,7 +47,7 @@ public class admindashboard extends JFrame {
 				SCIASData frame = new SCIASData();
 				frame.setVisible(true);
 			}
-		})
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(10, 123, 125, 23);
 		contentPane.add(btnNewButton_1);

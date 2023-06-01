@@ -66,9 +66,30 @@ public class Users extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Connection con;
 				try {
-					//
+					con = dbconnect.getConnection();
+					Statement st=con.createStatement();
+					String query="select * from user";
+					ResultSet rs=st.executeQuery(query);
+					ResultSetMetaData rsmd=rs.getMetaData();
+					DefaultTableModel model = new DefaultTableModel();
+					userstbl.setModel(model);
+					
+					int cols=rsmd.getColumnCount();
+					String[] colName=new String[cols];
+					for(int i=0;i<cols;i++)
+						colName[i]=rsmd.getColumnName(i+1);
+					model.setColumnIdentifiers(colName);
+					String user_id, username, password, confirmPassword, email, phone_number;
+					
 					while(rs.next()) {
-						//
+						user_id=rs.getString(1);
+						username=rs.getString(2);
+						password=rs.getString(3);
+						confirmPassword=rs.getString(4);
+						email=rs.getString(5);
+						phone_number=rs.getString(6);
+						String[] row= {user_id, username, password, confirmPassword, email, phone_number};
+						model.addRow(row);
 					}
 					st.close();
 					con.close();
